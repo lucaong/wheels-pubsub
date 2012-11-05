@@ -4,6 +4,37 @@ Wheels PubSub
 Simple and lightweight PubSub, fully compatible with CommonJS (Node), AMD and standard browser script tag include.
 
 
+Install
+=======
+
+`wheels-pubsub` can be included in a project with CommonJS / npm, AMD or standard browser script tag. Its only dependency is `wheels-class`.
+
+**npm**
+
+```shell
+npm install wheels-pubsub
+```
+
+**AMD / RequireJS**
+
+```javascript
+// Remember to provide the dependency `wheels-class`
+require(["wheels-pubsub"], function( PubSub ) {
+	var ps = new PubSub();
+});
+```
+
+**Traditional browser script tag**
+
+```html
+<script type="text/javascript" src="path/to/wheels-class.js"></script>
+<script type="text/javascript" src="path/to/wheels-pubsub.js"></script>
+<script type="text/javascript">
+	var pss = new Wheels.PubSub();
+</script>
+```
+
+
 Usage
 -----
 
