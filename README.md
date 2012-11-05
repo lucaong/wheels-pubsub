@@ -30,7 +30,7 @@ require(["wheels-pubsub"], function( PubSub ) {
 <script type="text/javascript" src="path/to/wheels-class.js"></script>
 <script type="text/javascript" src="path/to/wheels-pubsub.js"></script>
 <script type="text/javascript">
-	var pss = new Wheels.PubSub();
+	var ps = new Wheels.PubSub();
 </script>
 ```
 
