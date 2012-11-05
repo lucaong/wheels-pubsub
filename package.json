@@ -1,9 +1,13 @@
 {
   "author": "Luca Ongaro <mail@lucaongaro.eu> (http://www.lucaongaro.eu)",
   "name": "wheels-pubsub",
-  "description": "Simple and lightweight PubSub, fully compatible with CommonJS (Node), AMD and standard browser script tag include",
+  "description": "Simple and lightweight PubSub, fully compatible with CommonJS / Node, AMD and standard browser script tag include",
   "version": "0.0.1",
   "main": "wheels-pubsub",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucaong/wheels-pubsub.git"
+  },
   "scripts": {
     "test": "node_modules/.bin/buster-test && node_modules/.bin/buster-test --config spec/buster-no-amd.js"
   },
