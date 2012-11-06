@@ -20,13 +20,9 @@
 
     var PubSub = new Class({
 
-      initialize: function() {
-        this._eventListeners = {};
-      },
-
       pub: function( evt ) {
         var args;
-        if ( !this._eventListeners[ evt ] ) {
+        if ( !this._eventListeners || !this._eventListeners[ evt ] ) {
           return false;
         }
         for ( var i = 0, len = this._eventListeners[ evt ].length; i < len; i++ ) {
@@ -37,6 +33,7 @@
       },
 
       sub: function( evt, cbk ) {
+        this._eventListeners = this._eventListeners || {};
         if ( !this._eventListeners[ evt ] ) {
           this._eventListeners[ evt ] = [];
         }
@@ -54,6 +51,9 @@
       },
 
       unsub: function( evt, cbk ) {
+        if ( !this._eventListeners ) {
+          return this;
+        }
         if ( evt ) {
           if ( cbk ) {
             var i = ( this._eventListeners[ evt ] || [] ).indexOf( cbk );
