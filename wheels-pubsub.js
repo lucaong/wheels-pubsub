@@ -18,6 +18,19 @@
 
 }( this, function( Class ) {
 
+    var idxOf = function( ary, elem ) {
+      if ( ary.indexOf ) {
+        return ary.indexOf( elem );
+      } else {
+        for ( var i = 0, len = ary.length; i < len; i++ ) {
+          if ( elem === ary[ i ] ) {
+            return i;
+          }
+        }
+        return -1;
+      }
+    };
+
     var PubSub = new Class({
 
       pub: function( evt ) {
@@ -56,7 +69,7 @@
         }
         if ( evt ) {
           if ( cbk ) {
-            var i = ( this._eventListeners[ evt ] || [] ).indexOf( cbk );
+            var i = idxOf( ( this._eventListeners[ evt ] || [] ), cbk );
             if ( i < 0 ) {
               return this;
             }
