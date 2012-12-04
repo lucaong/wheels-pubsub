@@ -33,7 +33,7 @@
 
     var PubSub = new Class({
 
-      pub: function( evt ) {
+      emit: function( evt ) {
         var args;
         if ( !this._eventListeners || !this._eventListeners[ evt ] ) {
           return false;
@@ -45,8 +45,12 @@
         return true;
       },
 
+<<<<<<< HEAD
       sub: function( evt, cbk ) {
         this._eventListeners = this._eventListeners || {};
+=======
+      on: function( evt, cbk ) {
+>>>>>>> more consistent method naming
         if ( !this._eventListeners[ evt ] ) {
           this._eventListeners[ evt ] = [];
         }
@@ -54,19 +58,20 @@
         return this;
       },
 
-      subOnce: function( evt, cbk ) {
+      once: function( evt, cbk ) {
         var self = this;
-        self.sub( evt, function wrap() {
-          self.unsub( evt, wrap );
+        self.on( evt, function wrap() {
+          self.off( evt, wrap );
           cbk.apply( this, arguments );
         });
         return this;
       },
-
-      unsub: function( evt, cbk ) {
+  
+      off: function( evt, cbk ) {
         if ( !this._eventListeners ) {
           return this;
         }
+        
         if ( evt ) {
           if ( cbk ) {
             var i = idxOf( ( this._eventListeners[ evt ] || [] ), cbk );
