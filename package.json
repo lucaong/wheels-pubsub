@@ -15,6 +15,7 @@
     "wheels-class": "~0.0.1"
   },
   "devDependencies": {
+    "requirejs": "~2.1.2",
     "buster": "~0.6.2",
     "buster-amd": "~0.2.0"
   },

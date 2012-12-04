@@ -9,8 +9,8 @@ config["Node tests"] = {
 config["Tests with Require JS"] = {
 	rootPath: "../",
 	environment: "browser",
-	libs:  ["spec/lib/require.js"],
-	sources: ["spec/lib/wheels-class.js", "wheels-pubsub.js"],
+	libs:  ["node_modules/requirejs/require.js"],
+	sources: ["node_modules/wheels-class/wheels-class.js", "wheels-pubsub.js"],
 	tests: ["spec/*.spec.js"],
 	extensions: [require("buster-amd")]
 };
