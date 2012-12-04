@@ -46,24 +46,24 @@ var cbk = function( evt ) {
 };
 
 // Subscribe to an event:
-ps.sub("foo", cbk);
+ps.on("foo", cbk);
 
 // Publish event:
-ps.pub("foo"); // Console will log "Event foo was triggered!"
+ps.publish("foo"); // Console will log "Event foo was triggered!"
 
 // Pass other arguments when publishing event:
-ps.sub("bar", function( evt, arg1, arg2 ) {
+ps.on("bar", function( evt, arg1, arg2 ) {
 	console.log( "Received event " + evt + "with args " + arg1 + " and " + arg2 );
 });
-ps.pub("bar", 123, "abc"); // Console will log "Received event bar with arguments 123 and abc"
+ps.publish("bar", 123, "abc"); // Console will log "Received event bar with arguments 123 and abc"
 
 // Unsubscribe:
-ps.unsub("foo", cbk); // Unsubscribe `cbk` from event "foo"
-ps.unsub("foo");      // Unsubscribe any callback from event foo
-ps.unsub();           // Unsubscribe any callback from any event
+ps.off("foo", cbk); // Unsubscribe `cbk` from event "foo"
+ps.off("foo");      // Unsubscribe any callback from event foo
+ps.off();           // Unsubscribe any callback from any event
 
 // Subscribe to an event only once:
-ps.subOnce("foo", cbk);
-ps.pub("foo"); // Console will log "Event foo was triggered!"
-ps.pub("foo"); // Console won't log anything
+ps.once("foo", cbk);
+ps.publish("foo"); // Console will log "Event foo was triggered!"
+ps.publish("foo"); // Console won't log anything
 ```
