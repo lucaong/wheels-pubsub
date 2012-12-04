@@ -45,16 +45,14 @@
         return true;
       },
 
-<<<<<<< HEAD
-      sub: function( evt, cbk ) {
-        this._eventListeners = this._eventListeners || {};
-=======
       on: function( evt, cbk ) {
->>>>>>> more consistent method naming
+        this._eventListeners = this._eventListeners || {};
+
         if ( !this._eventListeners[ evt ] ) {
           this._eventListeners[ evt ] = [];
         }
         this._eventListeners[ evt ].push( cbk );
+
         return this;
       },
 
@@ -71,7 +69,7 @@
         if ( !this._eventListeners ) {
           return this;
         }
-        
+
         if ( evt ) {
           if ( cbk ) {
             var i = idxOf( ( this._eventListeners[ evt ] || [] ), cbk );
