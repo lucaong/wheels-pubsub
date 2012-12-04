@@ -48,14 +48,14 @@ var cbk = function( evt ) {
 // Subscribe to an event:
 ps.on("foo", cbk);
 
-// Publish event:
-ps.publish("foo"); // Console will log "Event foo was triggered!"
+// emit event:
+ps.emit("foo"); // Console will log "Event foo was triggered!"
 
-// Pass other arguments when publishing event:
+// Pass other arguments when emitting event:
 ps.on("bar", function( evt, arg1, arg2 ) {
 	console.log( "Received event " + evt + "with args " + arg1 + " and " + arg2 );
 });
-ps.publish("bar", 123, "abc"); // Console will log "Received event bar with arguments 123 and abc"
+ps.emit("bar", 123, "abc"); // Console will log "Received event bar with arguments 123 and abc"
 
 // Unsubscribe:
 ps.off("foo", cbk); // Unsubscribe `cbk` from event "foo"
@@ -64,6 +64,6 @@ ps.off();           // Unsubscribe any callback from any event
 
 // Subscribe to an event only once:
 ps.once("foo", cbk);
-ps.publish("foo"); // Console will log "Event foo was triggered!"
-ps.publish("foo"); // Console won't log anything
+ps.emit("foo"); // Console will log "Event foo was triggered!"
+ps.emit("foo"); // Console won't log anything
 ```
